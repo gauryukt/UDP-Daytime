@@ -1,0 +1,33 @@
+//Course: CSAS 3211 WA
+//UDPDaytime: Reads a sequence of bits from a file, separates the data into frames, unstuffs the data, and checks the
+//parity of each frame for errors. It then writes to a file (Output.txt)into the frames, stating which are good and which
+//are corrupt.
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class module6 {
+
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		//Input from file
+		Scanner input = new Scanner(new File("frame_data.txt"));
+		//the result file with the results
+		PrintStream output = new PrintStream(new File("Output.txt"));
+
+		String frame = "";
+		while(input.hasNext()) {
+			//frame gets the long bit by appending all the lines from the .txt file.
+			frame = frame + input.nextLine();
+		}
+
+		//Index helper for printing the frames
+		int index = 1;
+
+		//A print statement to see the long bit (just for helping and seeing)
+		System.out.println("The long bit:");
+		System.out.println(frame);
+		System.out.println("");
